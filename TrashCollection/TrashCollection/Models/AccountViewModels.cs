@@ -84,6 +84,10 @@ namespace TrashCollection.Models
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
+        [Required]
+        [Display(Name = "User Roles")]
+        public string UserRoles { get; set; }
+
     }
 
     public class ResetPasswordViewModel

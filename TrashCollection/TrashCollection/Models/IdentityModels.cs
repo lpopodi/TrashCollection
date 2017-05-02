@@ -14,6 +14,7 @@ namespace TrashCollection.Models
         public DateTime EmailLinkDate { get; set; }
         public DateTime JoinDate { get; set; }
         public DateTime LastLoginDate { get; set; }
+        public string UserRole { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -35,5 +36,9 @@ namespace TrashCollection.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Service> Services { get; set; }
+
+        public DbSet<Location> LocationSet { get; set; }
     }
 }

@@ -198,9 +198,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Location.cs" />
     <Compile Include="Migrations\201705021323538_initial add migration command.cs" />
     <Compile Include="Migrations\201705021323538_initial add migration command.Designer.cs">
       <DependentUpon>201705021323538_initial add migration command.cs</DependentUpon>
@@ -213,11 +217,28 @@
     <Compile Include="Migrations\201705021536314_trying to add phone number to registration.Designer.cs">
       <DependentUpon>201705021536314_trying to add phone number to registration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705021800077_trying to add roles.cs" />
+    <Compile Include="Migrations\201705021800077_trying to add roles.Designer.cs">
+      <DependentUpon>201705021800077_trying to add roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705021814191_adding code to form for user roles.cs" />
+    <Compile Include="Migrations\201705021814191_adding code to form for user roles.Designer.cs">
+      <DependentUpon>201705021814191_adding code to form for user roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705021919268_more user registration edits.cs" />
+    <Compile Include="Migrations\201705021919268_more user registration edits.Designer.cs">
+      <DependentUpon>201705021919268_more user registration edits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705021945243_working registration with user role.cs" />
+    <Compile Include="Migrations\201705021945243_working registration with user role.Designer.cs">
+      <DependentUpon>201705021945243_working registration with user role.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -278,9 +299,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\User\Admin.cshtml" />
+    <Content Include="Views\User\Customer.cshtml" />
+    <Content Include="Views\User\Employee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -299,6 +324,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705021536314_trying to add phone number to registration.resx">
       <DependentUpon>201705021536314_trying to add phone number to registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021800077_trying to add roles.resx">
+      <DependentUpon>201705021800077_trying to add roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021814191_adding code to form for user roles.resx">
+      <DependentUpon>201705021814191_adding code to form for user roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021919268_more user registration edits.resx">
+      <DependentUpon>201705021919268_more user registration edits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021945243_working registration with user role.resx">
+      <DependentUpon>201705021945243_working registration with user role.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
