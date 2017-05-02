@@ -1,5 +1,7 @@
 namespace TrashCollection.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +28,9 @@ namespace TrashCollection.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            
+
         }
     }
 }
