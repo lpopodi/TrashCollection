@@ -16,45 +16,43 @@ namespace TrashCollection.Controllers
 {
     public class UserController : Controller
     {
-        protected string RedirectPath = string.Empty;
-        protected bool DoRedirect = false;
+        //protected string RedirectPath = string.Empty;
+        //protected bool DoRedirect = false;
+        //protected string UserStatus = string.Empty;
 
-        protected override void Initialize(RequestContext requestContext)
+        [Authorize]
+        public ActionResult Index()
         {
-            base.Initialize(requestContext);
-            // Your logic to determine whether to redirect or not goes here. Bellow is an example...
-            if (requestContext.HttpContext.User.IsInRole("Admin"))
+            var user = User.Identity;
+            ApplicationDbContext context = new ApplicationDbContext();
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var s = UserManager.GetRoles(user.GetUserId());
+
+            do
             {
-                DoRedirect = true;
-                RedirectPath = Url.Action("Admin", "User");
+                if (s[0].ToString() == "Admin")
+                {
+                    //UserStatus = "Admin";
+                    return View("Admin", "User");
+                }
+                else if (s[0].ToString() == "Employee")
+                {
+                    //UserStatus = "Employee";
+                    return View("Index", "Employee");
+                }
+                else if (s[0].ToString() == "Customer")
+                {
+                    //UserStatus = "Customer";
+                    return View("Index", "Customer");
+                }
+                else
+                {
+                    //UserStatus = "na";
+                    return View("Index", "Home");
+                }
             }
-            else if (requestContext.HttpContext.User.IsInRole("Employee"))
-            {
-                DoRedirect = true;
-                RedirectPath = Url.Action("Employee", "User");
-            }
-            else if (requestContext.HttpContext.User.IsInRole("Customer"))
-            {
-                DoRedirect = true;
-                RedirectPath = Url.Action("Customer", "User");
-            }
-            else
-            {
-                DoRedirect = false;
-            }
+            while (User.Identity.IsAuthenticated);
         }
 
-        protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            base.OnActionExecuting(filterContext);
-            if (DoRedirect)
-            {
-                // Option 1: TRANSFER the request to another url
-                //filterContext.Result = new TransferResult(RedirectPath);
-                // Option 2: REDIRECT the request to another url
-                filterContext.Result = new RedirectResult(RedirectPath);
-            }
-
-        }
     }
 }

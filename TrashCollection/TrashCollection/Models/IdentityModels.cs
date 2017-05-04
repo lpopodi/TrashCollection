@@ -37,8 +37,12 @@ namespace TrashCollection.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<Service> Services { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
-        public DbSet<Location> LocationSet { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<Billing> BillingProfiles { get; set; }
     }
 }

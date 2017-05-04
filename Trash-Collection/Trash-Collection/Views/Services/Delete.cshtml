@@ -1,0 +1,72 @@
+﻿@model Trash_Collection.Models.Service
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Service</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OneTimeChange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OneTimeChange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempChangeDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempChangeDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PermanentChange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermanentChange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceHold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceHold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoldDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoldDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
