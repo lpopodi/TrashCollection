@@ -13,10 +13,17 @@ namespace Trash_Collection.Models
         public int ServiceId { get; set; }
         [Required(ErrorMessage = "A Service Day is required")]
         public bool OneTimeChange { get; set; }
-        public string TempChangeDay { get; set; }
+        public DateTime? TempChangeDay { get; set; }
         public bool PermanentChange { get; set; }
         public string ServiceDay { get; set; }
         public bool ServiceHold { get; set; }
-        public DateTime HoldDate { get; set; }
+        public DateTime? HoldDate { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
+
+        public virtual Pickup Pickup { get; set; }
+
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

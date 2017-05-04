@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace Trash_Collection.Models
 {
@@ -15,6 +16,7 @@ namespace Trash_Collection.Models
         public DateTime JoinDate { get; internal set; }
         public DateTime LastLoginDate { get; internal set; }
         public string LastName { get; internal set; }
+        public virtual ICollection<Service> Services { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -38,5 +40,9 @@ namespace Trash_Collection.Models
         }
 
         public System.Data.Entity.DbSet<Trash_Collection.Models.Service> Services { get; set; }
+
+        public System.Data.Entity.DbSet<Trash_Collection.Models.Invoice> Invoices { get; set; }
+
+        public System.Data.Entity.DbSet<Trash_Collection.Models.Pickup> Pickups { get; set; }
     }
 }

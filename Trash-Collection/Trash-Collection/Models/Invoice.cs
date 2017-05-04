@@ -13,7 +13,7 @@ namespace Trash_Collection.Models
         public int InvoiceId { get; set; }
         public decimal MonthlyPrice { get; set; }
         [ForeignKey("Service")]
-        public string ServiceID { get; set; }
+        public int ServiceId { get; set; }
         public virtual Service Service { get; set; }
     }
 }

@@ -10,9 +10,9 @@ namespace Trash_Collection.Models
     public class Pickup
     {
         #region Properties
-        [Key]
+        [Key, ForeignKey("Service")]
         public int PickupId { get; set; }
-        [Required(ErrorMessage = "Name is required")]
+        [Required(ErrorMessage = "Address is required")]
         public string Address { get; set; }
         [Required(ErrorMessage = "City is required")]
         public string City { get; set; }
@@ -20,15 +20,15 @@ namespace Trash_Collection.Models
         public string State { get; set; }
         [Required(ErrorMessage = "ZipCode is required")]
         public string Zip { get; set; }
-        //    [Required(ErrorMessage = "Country is required")]
-        //    public string Country { get; set; }
+        [Required(ErrorMessage = "Country is required")]
+        //public string Country { get; set; }
+        //public string CountryName { get; set; }
         public float Latitude { get; set; }
         public float Longitude { get; set; }
-        public List<Country> Countries { get; set; }
-        public string CountryCode { get; set; }
-        public string MapReference { get; set; }
-        [ForeignKey("Service")]
-        public string ServiceID { get; set; }
+        //public List<Country> Countries { get; set; }
+        //public string CountryCode { get; set; }
+        //public string MapReference { get; set; }
+        
         public virtual Service Service { get; set; }
 
         public string DisplayAddress
@@ -49,15 +49,15 @@ namespace Trash_Collection.Models
             #endregion
         }
 
-        public class Country
-        {
-            #region Properties  
-            public int CountryId { get; set; }
-            public string CountryName { get; set; }
-            public string MapReference { get; set; }
-            public string CountryCode { get; set; }
-            public string CountryCodeLong { get; set; }
-            #endregion
-        }
+        //public class Country
+        //{
+        //    #region Properties  
+        //    public int CountryId { get; set; }
+        //    public string CountryName { get; set; }
+        //    public string MapReference { get; set; }
+        //    public string CountryCode { get; set; }
+        //    public string CountryCodeLong { get; set; }
+        //    #endregion
+        //}
     }
 }

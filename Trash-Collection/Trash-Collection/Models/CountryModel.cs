@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 using System.Web;
-//using static TrashCollection.Models.Pickup;
+using static Trash_Collection.Models.Pickup;
 
 namespace Trash_Collection.Models
 {
@@ -95,7 +95,7 @@ namespace Trash_Collection.Models
     //            adap.Fill(dt);
     //            countries = ConvertTo<Country>(dt);
     //        }
-    //        catch (Exception x)
+    //        catch (Exception)
     //        {
 
     //        }
