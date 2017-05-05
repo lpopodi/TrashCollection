@@ -15,5 +15,10 @@ namespace Trash_Collection.Controllers
         {
             return View();
         }
+        //[Route("pickups/route/{Zip}")]
+        //public ActionResult ByZipCode()
+        //{
+
+        //}
     }
 }

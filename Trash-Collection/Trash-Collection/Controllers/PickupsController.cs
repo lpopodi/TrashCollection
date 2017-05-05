@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Trash_Collection.Models;
-using static Trash_Collection.Models.Pickup;
 
 namespace Trash_Collection.Controllers
 {
@@ -18,8 +17,8 @@ namespace Trash_Collection.Controllers
         // GET: Pickups
         public ActionResult Index()
         {
-            var pickups = db.Pickups.Include(i => i.Service);
-            return View(db.Pickups.ToList());
+            var pickups = db.Pickups.Include(p => p.Service);
+            return View(pickups.ToList());
         }
 
         // GET: Pickups/Details/5
@@ -40,11 +39,7 @@ namespace Trash_Collection.Controllers
         // GET: Pickups/Create
         public ActionResult Create()
         {
-            ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay");
-            //List<Country> objCountry = new List<Country>();
-            //CountryModel model = new CountryModel();
-            //objCountry = model.GetCountries();
-            //return View(new Pickup { Countries = objCountry });
+            ViewBag.PickupId = new SelectList(db.Services, "ServiceId", "ServiceDay");
             return View();
         }
 
@@ -53,7 +48,7 @@ namespace Trash_Collection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PickupId,Address,City,State,Zip,Latitude,Longitude,CountryCode,MapReference,ServiceId")] Pickup pickup)
+        public ActionResult Create([Bind(Include = "PickupId,Address,City,State,Zip,Latitude,Longitude")] Pickup pickup)
         {
             if (ModelState.IsValid)
             {
@@ -62,7 +57,7 @@ namespace Trash_Collection.Controllers
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickups.ServiceId);
+            ViewBag.PickupId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickup.PickupId);
             return View(pickup);
         }
 
@@ -78,6 +73,7 @@ namespace Trash_Collection.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.PickupId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickup.PickupId);
             return View(pickup);
         }
 
@@ -86,7 +82,7 @@ namespace Trash_Collection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PickupId,Address,City,State,Zip,Latitude,Longitude,CountryCode,MapReference")] Pickup pickup)
+        public ActionResult Edit([Bind(Include = "PickupId,Address,City,State,Zip,Latitude,Longitude")] Pickup pickup)
         {
             if (ModelState.IsValid)
             {
@@ -94,6 +90,7 @@ namespace Trash_Collection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.PickupId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickup.PickupId);
             return View(pickup);
         }
 

@@ -18,11 +18,15 @@ namespace Trash_Collection.Controllers
             var customerProfile = User.Identity.GetUserId();
 
             CustomerViewModel cv = new CustomerViewModel();
-            var customer = db.Services.Single(c => c.UserId == customerProfile);
 
-            //cv.Service = from s in db.Services where (Id == customerProfile) select s;
-            //cv.Pickup = from p in db.Pickups where (select p;
-            //cv.Invoice = from i in db.Invoices select i;
+            var customer = db.Services.Single(c => c.UserId == customerProfile);
+            
+            //var custPickup = db.Pickups.Single(cp => cp.ServiceId == customer.ServiceId);
+            //var custInvoice = db.Invoices.Single(ci => ci.ServiceId == customer.ServiceId);
+
+            //cv.Service = db.Services.Single(c => c.UserId == customerProfile);
+            //cv.Pickup = db.Pickups.Single(cp => cp.ServiceId == customer.ServiceId);
+            //cv.Invoice = db.Invoices.Single(ci => ci.ServiceId == customer.ServiceId);
 
             return View(customer);
             //return View();

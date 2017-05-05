@@ -292,9 +292,28 @@
     <Compile Include="Migrations\201705051632579_userID key now working thank goodness.Designer.cs">
       <DependentUpon>201705051632579_userID key now working thank goodness.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705051703265_making sure all updates accounted for.cs" />
+    <Compile Include="Migrations\201705051703265_making sure all updates accounted for.Designer.cs">
+      <DependentUpon>201705051703265_making sure all updates accounted for.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051827163_simplifying Pickup and removed views and controller.cs" />
+    <Compile Include="Migrations\201705051827163_simplifying Pickup and removed views and controller.Designer.cs">
+      <DependentUpon>201705051827163_simplifying Pickup and removed views and controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051849211_ added pickup controller and views back in.cs" />
+    <Compile Include="Migrations\201705051849211_ added pickup controller and views back in.Designer.cs">
+      <DependentUpon>201705051849211_ added pickup controller and views back in.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051856351_corrected foreign key for pickup.cs" />
+    <Compile Include="Migrations\201705051856351_corrected foreign key for pickup.Designer.cs">
+      <DependentUpon>201705051856351_corrected foreign key for pickup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705052208560_end of day compilation for any changes plenty of work to go.cs" />
+    <Compile Include="Migrations\201705052208560_end of day compilation for any changes plenty of work to go.Designer.cs">
+      <DependentUpon>201705052208560_end of day compilation for any changes plenty of work to go.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Invoice.cs" />
@@ -305,6 +324,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-simplex.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -368,11 +388,6 @@
     <Content Include="Views\Services\Details.cshtml" />
     <Content Include="Views\Services\Edit.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
-    <Content Include="Views\Pickups\Create.cshtml" />
-    <Content Include="Views\Pickups\Delete.cshtml" />
-    <Content Include="Views\Pickups\Details.cshtml" />
-    <Content Include="Views\Pickups\Edit.cshtml" />
-    <Content Include="Views\Pickups\Index.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Invoices\Create.cshtml" />
@@ -380,6 +395,11 @@
     <Content Include="Views\Invoices\Details.cshtml" />
     <Content Include="Views\Invoices\Edit.cshtml" />
     <Content Include="Views\Invoices\Index.cshtml" />
+    <Content Include="Views\Pickups\Create.cshtml" />
+    <Content Include="Views\Pickups\Delete.cshtml" />
+    <Content Include="Views\Pickups\Details.cshtml" />
+    <Content Include="Views\Pickups\Edit.cshtml" />
+    <Content Include="Views\Pickups\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -457,6 +477,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705051632579_userID key now working thank goodness.resx">
       <DependentUpon>201705051632579_userID key now working thank goodness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051703265_making sure all updates accounted for.resx">
+      <DependentUpon>201705051703265_making sure all updates accounted for.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051827163_simplifying Pickup and removed views and controller.resx">
+      <DependentUpon>201705051827163_simplifying Pickup and removed views and controller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051849211_ added pickup controller and views back in.resx">
+      <DependentUpon>201705051849211_ added pickup controller and views back in.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051856351_corrected foreign key for pickup.resx">
+      <DependentUpon>201705051856351_corrected foreign key for pickup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705052208560_end of day compilation for any changes plenty of work to go.resx">
+      <DependentUpon>201705052208560_end of day compilation for any changes plenty of work to go.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
