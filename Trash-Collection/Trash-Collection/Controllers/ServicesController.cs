@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Trash_Collection.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Trash_Collection.Controllers
 {
+    [Authorize]
     public class ServicesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,6 +19,7 @@ namespace Trash_Collection.Controllers
         // GET: Services
         public ActionResult Index()
         {
+            var pickups = db.Pickups.Include(i => i.Service);
             return View(db.Services.ToList());
         }
 
@@ -46,10 +49,11 @@ namespace Trash_Collection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ServiceId,OneTimeChange,TempChangeDay,PermanentChange,ServiceDay,ServiceHold,HoldDate")] Service service)
+        public ActionResult Create([Bind(Include = "ServiceId,OneTimeChange,TempChangeDay,PermanentChange,ServiceDay,ServiceHold,HoldDate,UserId")] Service service)
         {
             if (ModelState.IsValid)
             {
+                service.UserId = User.Identity.GetUserId();
                 db.Services.Add(service);
                 db.SaveChanges();
                 return RedirectToAction("Index");

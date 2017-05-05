@@ -18,6 +18,7 @@ namespace Trash_Collection.Controllers
         // GET: Pickups
         public ActionResult Index()
         {
+            var pickups = db.Pickups.Include(i => i.Service);
             return View(db.Pickups.ToList());
         }
 
@@ -39,6 +40,7 @@ namespace Trash_Collection.Controllers
         // GET: Pickups/Create
         public ActionResult Create()
         {
+            ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay");
             //List<Country> objCountry = new List<Country>();
             //CountryModel model = new CountryModel();
             //objCountry = model.GetCountries();
@@ -51,7 +53,7 @@ namespace Trash_Collection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PickupId,Address,City,State,Zip,Latitude,Longitude,CountryCode,MapReference")] Pickup pickup)
+        public ActionResult Create([Bind(Include = "PickupId,Address,City,State,Zip,Latitude,Longitude,CountryCode,MapReference,ServiceId")] Pickup pickup)
         {
             if (ModelState.IsValid)
             {
@@ -60,6 +62,7 @@ namespace Trash_Collection.Controllers
                 return RedirectToAction("Index");
             }
 
+            //ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickups.ServiceId);
             return View(pickup);
         }
 

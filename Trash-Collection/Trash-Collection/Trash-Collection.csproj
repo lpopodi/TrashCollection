@@ -272,6 +272,26 @@
     <Compile Include="Migrations\201705042103029_modifying Pickup options and creation.Designer.cs">
       <DependentUpon>201705042103029_modifying Pickup options and creation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705051248513_adding datetime datatypes to fields.cs" />
+    <Compile Include="Migrations\201705051248513_adding datetime datatypes to fields.Designer.cs">
+      <DependentUpon>201705051248513_adding datetime datatypes to fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051324453_corrected datetime datatype.cs" />
+    <Compile Include="Migrations\201705051324453_corrected datetime datatype.Designer.cs">
+      <DependentUpon>201705051324453_corrected datetime datatype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051342372_making sure up to date while testing.cs" />
+    <Compile Include="Migrations\201705051342372_making sure up to date while testing.Designer.cs">
+      <DependentUpon>201705051342372_making sure up to date while testing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051558339_removed controller and views for invoices.cs" />
+    <Compile Include="Migrations\201705051558339_removed controller and views for invoices.Designer.cs">
+      <DependentUpon>201705051558339_removed controller and views for invoices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051632579_userID key now working thank goodness.cs" />
+    <Compile Include="Migrations\201705051632579_userID key now working thank goodness.Designer.cs">
+      <DependentUpon>201705051632579_userID key now working thank goodness.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CountryModel.cs" />
@@ -296,6 +316,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -347,21 +368,21 @@
     <Content Include="Views\Services\Details.cshtml" />
     <Content Include="Views\Services\Edit.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
-    <Content Include="Views\Invoices\Create.cshtml" />
-    <Content Include="Views\Invoices\Delete.cshtml" />
-    <Content Include="Views\Invoices\Details.cshtml" />
-    <Content Include="Views\Invoices\Edit.cshtml" />
-    <Content Include="Views\Invoices\Index.cshtml" />
     <Content Include="Views\Pickups\Create.cshtml" />
     <Content Include="Views\Pickups\Delete.cshtml" />
     <Content Include="Views\Pickups\Details.cshtml" />
     <Content Include="Views\Pickups\Edit.cshtml" />
     <Content Include="Views\Pickups\Index.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Invoices\Create.cshtml" />
+    <Content Include="Views\Invoices\Delete.cshtml" />
+    <Content Include="Views\Invoices\Details.cshtml" />
+    <Content Include="Views\Invoices\Edit.cshtml" />
+    <Content Include="Views\Invoices\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Customer\" />
     <Folder Include="Views\Role\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
@@ -421,6 +442,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705042103029_modifying Pickup options and creation.resx">
       <DependentUpon>201705042103029_modifying Pickup options and creation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051248513_adding datetime datatypes to fields.resx">
+      <DependentUpon>201705051248513_adding datetime datatypes to fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051324453_corrected datetime datatype.resx">
+      <DependentUpon>201705051324453_corrected datetime datatype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051342372_making sure up to date while testing.resx">
+      <DependentUpon>201705051342372_making sure up to date while testing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051558339_removed controller and views for invoices.resx">
+      <DependentUpon>201705051558339_removed controller and views for invoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051632579_userID key now working thank goodness.resx">
+      <DependentUpon>201705051632579_userID key now working thank goodness.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

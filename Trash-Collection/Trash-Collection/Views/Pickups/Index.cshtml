@@ -29,12 +29,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Longitude)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.CountryCode)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MapReference)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -58,12 +58,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.Longitude)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.CountryCode)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MapReference)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PickupId }) |
             @Html.ActionLink("Details", "Details", new { id=item.PickupId }) |

@@ -17,7 +17,8 @@ namespace Trash_Collection.Controllers
         // GET: Invoices
         public ActionResult Index()
         {
-            return View(db.Invoices.ToList());
+            var invoices = db.Invoices.Include(i => i.Service);
+            return View(invoices.ToList());
         }
 
         // GET: Invoices/Details/5
@@ -38,6 +39,7 @@ namespace Trash_Collection.Controllers
         // GET: Invoices/Create
         public ActionResult Create()
         {
+            ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay");
             return View();
         }
 
@@ -46,15 +48,17 @@ namespace Trash_Collection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "InvoiceId,MonthlyPrice")] Invoice invoice)
+        public ActionResult Create([Bind(Include = "InvoiceId,MonthlyPrice,ServiceId")] Invoice invoice)
         {
             if (ModelState.IsValid)
             {
+                invoice.MonthlyPrice = 100M;
                 db.Invoices.Add(invoice);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay", invoice.ServiceId);
             return View(invoice);
         }
 
@@ -70,6 +74,7 @@ namespace Trash_Collection.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay", invoice.ServiceId);
             return View(invoice);
         }
 
@@ -78,7 +83,7 @@ namespace Trash_Collection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "InvoiceId,MonthlyPrice")] Invoice invoice)
+        public ActionResult Edit([Bind(Include = "InvoiceId,MonthlyPrice,ServiceId")] Invoice invoice)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +91,7 @@ namespace Trash_Collection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay", invoice.ServiceId);
             return View(invoice);
         }
 
