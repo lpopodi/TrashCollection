@@ -52,7 +52,6 @@ namespace Trash_Collection.Controllers
         {
             if (ModelState.IsValid)
             {
-                invoice.MonthlyPrice = 100M;
                 db.Invoices.Add(invoice);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -9,10 +9,10 @@ namespace Trash_Collection.Models
 {
     public class Pickup
     {
-        #region Properties
+        
         [Key, ForeignKey("Service")]
         public int ServiceId { get; set; }
-        public int PickupId { get; set; }
+        //public int PickupId { get; set; }
         [Required(ErrorMessage = "Address is required")]
         public string Address { get; set; }
         [Required(ErrorMessage = "City is required")]
@@ -21,8 +21,8 @@ namespace Trash_Collection.Models
         public string State { get; set; }
         [Required(ErrorMessage = "ZipCode is required")]
         public string Zip { get; set; }
-        public float Latitude { get; set; }
-        public float Longitude { get; set; }
+        //public float Latitude { get; set; }
+        //public float Longitude { get; set; }
         
         public virtual Service Service { get; set; }
 
@@ -41,7 +41,7 @@ namespace Trash_Collection.Models
                 return string
                .Format("{0} {1} {2} {3}", dspAddress, dspCity, dspState, dspPostalCode);
             }
-            #endregion
+            
         }
 
     }

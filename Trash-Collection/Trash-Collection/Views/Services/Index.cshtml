@@ -12,6 +12,15 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.ApplicationUser.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pickup.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceDay)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.OneTimeChange)
         </th>
         <th>
@@ -19,9 +28,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PermanentChange)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ServiceDay)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ServiceHold)
@@ -35,6 +41,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pickup.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceDay)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.OneTimeChange)
         </td>
         <td>
@@ -42,9 +57,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PermanentChange)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ServiceDay)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ServiceHold)

@@ -11,6 +11,30 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pickup.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pickup.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDay)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.OneTimeChange)
         </dt>
 
@@ -32,14 +56,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.PermanentChange)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceDay)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ServiceDay)
         </dd>
 
         <dt>

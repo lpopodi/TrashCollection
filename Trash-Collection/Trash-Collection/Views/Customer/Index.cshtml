@@ -1,64 +1,34 @@
-﻿@model Trash_Collection.Models.CustomerViewModel
+﻿@model IEnumerable<Trash_Collection.Models.CustomerViewModel>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Customer Profile</h2>
 
-<p>
-    @Html.ActionLink("Create New Service", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OneTimeChange)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TempChangeDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PermanentChange)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ServiceDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ServiceHold)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoldDate)
-        </th>
-        <th></th>
-    </tr>
+@foreach (var item in Model)
+{
+    @*<tr>
+        <td>
+            @Html.DisplayFor(modelItem => item)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PermanentChange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OneTimeChange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TempChange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceHold)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>*@
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OneTimeChange)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TempChangeDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PermanentChange)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ServiceDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ServiceHold)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoldDate)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ServiceId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ServiceId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ServiceId })
-            </td>
-        </tr>
-    }
 
-</table>
-
+}

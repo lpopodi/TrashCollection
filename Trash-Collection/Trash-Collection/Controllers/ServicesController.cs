@@ -7,11 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Trash_Collection.Models;
-using Microsoft.AspNet.Identity;
 
 namespace Trash_Collection.Controllers
 {
-    [Authorize]
     public class ServicesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -19,8 +17,8 @@ namespace Trash_Collection.Controllers
         // GET: Services
         public ActionResult Index()
         {
-            var pickups = db.Pickups.Include(i => i.Service);
-            return View(db.Services.ToList());
+            var services = db.Services.Include(s => s.ApplicationUser).Include(s => s.Pickup);
+            return View(services.ToList());
         }
 
         // GET: Services/Details/5
@@ -41,6 +39,8 @@ namespace Trash_Collection.Controllers
         // GET: Services/Create
         public ActionResult Create()
         {
+            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "FirstName");
+            ViewBag.ServiceId = new SelectList(db.Pickups, "ServiceId", "Address");
             return View();
         }
 
@@ -49,16 +49,17 @@ namespace Trash_Collection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ServiceId,OneTimeChange,TempChangeDay,PermanentChange,ServiceDay,ServiceHold,HoldDate,UserId")] Service service)
+        public ActionResult Create([Bind(Include = "ServiceId,ServiceDay,OneTimeChange,TempChangeDay,PermanentChange,ServiceHold,HoldDate,UserId")] Service service)
         {
             if (ModelState.IsValid)
             {
-                service.UserId = User.Identity.GetUserId();
                 db.Services.Add(service);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "FirstName", service.UserId);
+            ViewBag.ServiceId = new SelectList(db.Pickups, "ServiceId", "Address", service.ServiceId);
             return View(service);
         }
 
@@ -74,6 +75,8 @@ namespace Trash_Collection.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "FirstName", service.UserId);
+            ViewBag.ServiceId = new SelectList(db.Pickups, "ServiceId", "Address", service.ServiceId);
             return View(service);
         }
 
@@ -82,7 +85,7 @@ namespace Trash_Collection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ServiceId,OneTimeChange,TempChangeDay,PermanentChange,ServiceDay,ServiceHold,HoldDate")] Service service)
+        public ActionResult Edit([Bind(Include = "ServiceId,ServiceDay,OneTimeChange,TempChangeDay,PermanentChange,ServiceHold,HoldDate,UserId")] Service service)
         {
             if (ModelState.IsValid)
             {
@@ -90,6 +93,8 @@ namespace Trash_Collection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "FirstName", service.UserId);
+            ViewBag.ServiceId = new SelectList(db.Pickups, "ServiceId", "Address", service.ServiceId);
             return View(service);
         }
 

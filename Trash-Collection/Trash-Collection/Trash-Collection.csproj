@@ -44,6 +44,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -79,6 +80,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -312,9 +314,28 @@
     <Compile Include="Migrations\201705052208560_end of day compilation for any changes plenty of work to go.Designer.cs">
       <DependentUpon>201705052208560_end of day compilation for any changes plenty of work to go.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705081502389_working on views and queries to get them how I want, discovered issue with foreign key not working correctly.cs" />
+    <Compile Include="Migrations\201705081502389_working on views and queries to get them how I want, discovered issue with foreign key not working correctly.Designer.cs">
+      <DependentUpon>201705081502389_working on views and queries to get them how I want, discovered issue with foreign key not working correctly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705081641476_once again reverting back to removing controllers and views due to errors.cs" />
+    <Compile Include="Migrations\201705081641476_once again reverting back to removing controllers and views due to errors.Designer.cs">
+      <DependentUpon>201705081641476_once again reverting back to removing controllers and views due to errors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705081952375_trying to fix pickups table.cs" />
+    <Compile Include="Migrations\201705081952375_trying to fix pickups table.Designer.cs">
+      <DependentUpon>201705081952375_trying to fix pickups table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705082002439_still working on pickups.cs" />
+    <Compile Include="Migrations\201705082002439_still working on pickups.Designer.cs">
+      <DependentUpon>201705082002439_still working on pickups.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\EmployeeBusinessLogic.cs" />
+    <Compile Include="Models\EmployeeSearchModel.cs" />
+    <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -383,18 +404,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Services\Create.cshtml" />
-    <Content Include="Views\Services\Delete.cshtml" />
-    <Content Include="Views\Services\Details.cshtml" />
-    <Content Include="Views\Services\Edit.cshtml" />
-    <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
-    <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Invoices\Create.cshtml" />
     <Content Include="Views\Invoices\Delete.cshtml" />
     <Content Include="Views\Invoices\Details.cshtml" />
     <Content Include="Views\Invoices\Edit.cshtml" />
     <Content Include="Views\Invoices\Index.cshtml" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Pickups\Create.cshtml" />
     <Content Include="Views\Pickups\Delete.cshtml" />
     <Content Include="Views\Pickups\Details.cshtml" />
@@ -492,6 +513,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705052208560_end of day compilation for any changes plenty of work to go.resx">
       <DependentUpon>201705052208560_end of day compilation for any changes plenty of work to go.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705081502389_working on views and queries to get them how I want, discovered issue with foreign key not working correctly.resx">
+      <DependentUpon>201705081502389_working on views and queries to get them how I want, discovered issue with foreign key not working correctly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705081641476_once again reverting back to removing controllers and views due to errors.resx">
+      <DependentUpon>201705081641476_once again reverting back to removing controllers and views due to errors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705081952375_trying to fix pickups table.resx">
+      <DependentUpon>201705081952375_trying to fix pickups table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705082002439_still working on pickups.resx">
+      <DependentUpon>201705082002439_still working on pickups.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

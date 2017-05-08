@@ -1,7 +1,64 @@
-﻿
+﻿@model Trash_Collection.Models.EmployeeViewModel
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Employee Access";
 }
 
-<h2>Index</h2>
+<h2>Employee Access</h2>
 
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @*<fieldset>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ServiceDay)
+            @Html.ValidationMessageFor(model => model.ServiceDay)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Zip)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Zip)
+            @Html.ValidationMessageFor(model => model.Zip)
+        </div>
+    </fieldset>*@
+}
+
+<hr />
+
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Date
+        </th>
+        <th>
+            Zip
+        </th>
+        <th>
+            Display Address
+        </th>
+    </tr>
+
+    @foreach (var item in @Model)
+    {
+        <tr>
+            <td>
+                @item.ServiceDay
+            </td>
+            <td>
+                @item.Zip
+            </td>
+            <td>
+                @item.DisplayAddress
+            </td>
+        </tr>
+    }
+
+</table>

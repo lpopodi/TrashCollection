@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace Trash_Collection.Models
 {
@@ -44,5 +45,6 @@ namespace Trash_Collection.Models
         public System.Data.Entity.DbSet<Trash_Collection.Models.Invoice> Invoices { get; set; }
 
         public System.Data.Entity.DbSet<Trash_Collection.Models.Pickup> Pickups { get; set; }
+        public IEnumerable ApplicationUsers { get; internal set; }
     }
 }

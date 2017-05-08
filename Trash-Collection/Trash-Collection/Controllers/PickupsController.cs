@@ -39,7 +39,7 @@ namespace Trash_Collection.Controllers
         // GET: Pickups/Create
         public ActionResult Create()
         {
-            ViewBag.PickupId = new SelectList(db.Services, "ServiceId", "ServiceDay");
+            ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace Trash_Collection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PickupId,Address,City,State,Zip,Latitude,Longitude")] Pickup pickup)
+        public ActionResult Create([Bind(Include = "ServiceId,Address,City,State,Zip")] Pickup pickup)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace Trash_Collection.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PickupId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickup.PickupId);
+            ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickup.ServiceId);
             return View(pickup);
         }
 
@@ -73,7 +73,7 @@ namespace Trash_Collection.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PickupId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickup.PickupId);
+            ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickup.ServiceId);
             return View(pickup);
         }
 
@@ -82,7 +82,7 @@ namespace Trash_Collection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PickupId,Address,City,State,Zip,Latitude,Longitude")] Pickup pickup)
+        public ActionResult Edit([Bind(Include = "ServiceId,Address,City,State,Zip")] Pickup pickup)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Trash_Collection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PickupId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickup.PickupId);
+            ViewBag.ServiceId = new SelectList(db.Services, "ServiceId", "ServiceDay", pickup.ServiceId);
             return View(pickup);
         }
 
